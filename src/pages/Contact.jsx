@@ -56,6 +56,83 @@ const Contact = () => {
         <title>Contact Us | Your Company Name</title>
         <meta name="description" content="Get in touch with us for any inquiries or support. We're here to help and answer any questions you might have." />
         <meta name="keywords" content="contact, support, inquiries, Your Company Name" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebPage",
+                "@id": "https://yourwebsite.com/contact/#webpage",
+                "url": "https://yourwebsite.com/contact/",
+                "name": "Contact Us | Your Company Name",
+                "description": "Get in touch with us for any inquiries or support.",
+                "isPartOf": { "@id": "https://yourwebsite.com/#website" }
+              },
+              {
+                "@type": "Organization",
+                "@id": "https://yourwebsite.com/#organization",
+                "name": "Your Company Name",
+                "url": "https://yourwebsite.com",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market Naif Deira, 25th St - Naif",
+                  "addressLocality": "Dubai",
+                  "addressCountry": "United Arab Emirates",
+                  "postalCode": "123421"
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+1-555-123-4567",
+                  "contactType": "customer service",
+                  "email": "contact@company.com",
+                  "areaServed": "AE",
+                  "availableLanguage": ["en", "ar"]
+                }
+              },
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                      "@id": "https://yourwebsite.com/",
+                      "name": "Home"
+                    }
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "item": {
+                      "@id": "https://yourwebsite.com/contact/",
+                      "name": "Contact"
+                    }
+                  }
+                ]
+              },
+              {
+                "@type": "ContactPage",
+                "name": "Contact Us",
+                "description": "Get in touch with us for any inquiries or support.",
+                "url": "https://yourwebsite.com/contact/",
+                "mainEntity": {
+                  "@type": "Organization",
+                  "name": "Your Company Name",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": "Baghlaf Building Showroom No.5, Satellite Market Naif Deira, 25th St - Naif",
+                    "addressLocality": "Dubai",
+                    "addressCountry": "United Arab Emirates",
+                    "postalCode": "123421"
+                  },
+                  "telephone": "+1-555-123-4567",
+                  "email": "contact@company.com"
+                }
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mt-10 mx-auto">

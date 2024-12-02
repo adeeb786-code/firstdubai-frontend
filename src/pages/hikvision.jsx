@@ -9,6 +9,128 @@ const Hikvision = () => {
         <title>Hikvision Technology | Your Company Name</title>
         <meta name="description" content="Discover Hikvision Technology's innovative security solutions and services. Learn more about our mission, vision, and featured products." />
         <meta name="keywords" content="Hikvision Technology, security solutions, IoT, AI, video surveillance" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://www.hikvision.com/#organization",
+                "name": "Hikvision Technology",
+                "url": "https://www.hikvision.com",
+                "foundingDate": "2001",
+                "description": "World-leading provider of security products and solutions",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.hikvision.com/logo.png"
+                },
+                "sameAs": [
+                  "https://www.linkedin.com/company/hikvision",
+                  "https://twitter.com/hikvision"
+                ],
+                "numberOfEmployees": {
+                  "@type": "QuantitativeValue",
+                  "value": "42000"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "IP Cameras",
+                "description": "Advanced AI-powered surveillance cameras with superior image quality",
+                "category": "Security Cameras",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "Hikvision"
+                },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "USD",
+                  "availability": "https://schema.org/InStock"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "NVR Systems",
+                "description": "Network Video Recorders with deep learning analytics",
+                "category": "Security Systems",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "Hikvision"
+                },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "USD",
+                  "availability": "https://schema.org/InStock"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "HikCentral",
+                "description": "Comprehensive video management platform with AI capabilities",
+                "category": "Security Software",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "Hikvision"
+                },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "USD",
+                  "availability": "https://schema.org/InStock"
+                }
+              },
+              {
+                "@type": "WebPage",
+                "@id": "https://www.hikvision.com/#webpage",
+                "url": "https://www.hikvision.com",
+                "name": "Hikvision Technology - Security Solutions",
+                "description": "Discover Hikvision's innovative security solutions",
+                "breadcrumb": {
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [
+                    {
+                      "@type": "ListItem",
+                      "position": 1,
+                      "item": {
+                        "@id": "https://www.hikvision.com/",
+                        "name": "Home"
+                      }
+                    },
+                    {
+                      "@type": "ListItem",
+                      "position": 2,
+                      "item": {
+                        "@id": "https://www.hikvision.com/products/",
+                        "name": "Products"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "What is Hikvision's core competency?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Hikvision is an IoT solution provider with video as its core competency, specializing in AI-powered surveillance technology and smart solutions."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "How many R&D engineers does Hikvision employ?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Hikvision employs over 20,000 R&D engineers and invests 8% to 10% of annual sales revenue in research and development."
+                    }
+                  }
+                ]
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
         {/* Hero Section - Updated content */}

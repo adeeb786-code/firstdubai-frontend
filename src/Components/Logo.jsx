@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Logo = () => {
   const logos = [
@@ -24,46 +25,84 @@ const Logo = () => {
   const duplicatedLogos = [...logos, ...logos];
 
   return (
-    <section className="py-16 bg-blue-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-4xl font-bold text-gray-900 mb-12">
-          Trusted by leading companies
-        </h2>
-        <div className="overflow-hidden">
-          <div 
-            className="flex will-change-transform" 
-            style={{
-              animation: 'carousel 20s cubic-bezier(0.4, 0.0, 0.2, 1) infinite'
-            }}
-          >
-            {duplicatedLogos.map((logo) => (
-              <div
-                key={`${logo.id}-${Math.random()}`}
-                className="flex-shrink-0 w-[150px] mx-4"
-              >
-                <div className="bg-white p-4 rounded-xl h-24 flex items-center justify-center">
-                  <img
-                    className="h-16 w-auto object-contain"
-                    src={logo.src}
-                    alt={logo.alt}
-                    loading="lazy"
-                  />
+    <>
+      <Helmet>
+        <title>Our Partners - Leading Technology Companies</title>
+        <meta name="description" content="Trusted by leading companies in technology, security and audio-visual solutions. Partners include Barco, Bose, Dahua, Epson and more." />
+        <meta name="keywords" content="technology partners, security solutions, audio visual partners" />
+        
+        {/* OpenGraph tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Our Technology Partners" />
+        <meta property="og:description" content="Partnering with world-leading technology companies" />
+        
+        {/* Schema.org JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Your Company Name",
+            "url": "https://www.yourcompany.com",
+            "partner": logos.map(logo => ({
+              "@type": "Organization",
+              "name": logo.alt,
+              "image": logo.src
+            })),
+            "brand": logos.map(logo => ({
+              "@type": "Brand",
+              "name": logo.alt,
+              "logo": logo.src
+            })),
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "500"
+            }
+          })}
+        </script>
+      </Helmet>
+
+      <section className="py-16 bg-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-center text-4xl font-bold text-gray-900 mb-12">
+            Trusted by leading companies
+          </h2>
+          <div className="overflow-hidden">
+            <div 
+              className="flex will-change-transform" 
+              style={{
+                animation: 'carousel 20s cubic-bezier(0.4, 0.0, 0.2, 1) infinite'
+              }}
+            >
+              {duplicatedLogos.map((logo) => (
+                <div
+                  key={`${logo.id}-${Math.random()}`}
+                  className="flex-shrink-0 w-[150px] mx-4"
+                >
+                  <div className="bg-white p-4 rounded-xl h-24 flex items-center justify-center">
+                    <img
+                      className="h-16 w-auto object-contain"
+                      src={logo.src}
+                      alt={logo.alt}
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
 
-      <style>
-        {`
-          @keyframes carousel {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-          }
-        `}
-      </style>
-    </section>
+        <style>
+          {`
+            @keyframes carousel {
+              0% { transform: translate3d(0, 0, 0); }
+              100% { transform: translate3d(-50%, 0, 0); }
+            }
+          `}
+        </style>
+      </section>
+    </>
   );
 };
 

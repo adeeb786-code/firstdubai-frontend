@@ -9,6 +9,128 @@ const Dahua = () => {
         <title>Dahua Technology | Your Company Name</title>
         <meta name="description" content="Discover Dahua Technology's innovative security solutions and services. Learn more about our mission, vision, and featured products." />
         <meta name="keywords" content="Dahua Technology, security solutions, IoT, AI, video surveillance" />
+        
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://www.dahuasecurity.com/#organization",
+                "name": "Dahua Technology",
+                "url": "https://www.dahuasecurity.com",
+                "foundingDate": "2001",
+                "description": "World-leading video-centric smart IoT solution and service provider",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.dahuasecurity.com/logo.png"
+                },
+                "sameAs": [
+                  "https://www.linkedin.com/company/dahua-technology",
+                  "https://twitter.com/DahuaTechnology"
+                ],
+                "numberOfEmployees": {
+                  "@type": "QuantitativeValue",
+                  "value": "20000+"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "IP Surveillance Solutions",
+                "description": "Cutting-edge cameras with advanced AI capabilities, thermal imaging, and facial recognition",
+                "category": "Security Systems",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "Dahua"
+                },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "USD",
+                  "availability": "https://schema.org/InStock"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "Smart IoT Solutions",
+                "description": "Integrated security management solutions combining video surveillance with intelligent analytics",
+                "category": "IoT Systems",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "Dahua"
+                },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "USD",
+                  "availability": "https://schema.org/InStock"
+                }
+              },
+              {
+                "@type": "Product",
+                "name": "AI-Powered Analytics",
+                "description": "Deep learning video analytics for facial recognition, people counting, and behavior analysis",
+                "category": "AI Software",
+                "brand": {
+                  "@type": "Brand",
+                  "name": "Dahua"
+                },
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "priceCurrency": "USD",
+                  "availability": "https://schema.org/InStock"
+                }
+              },
+              {
+                "@type": "WebPage",
+                "@id": "https://www.dahuasecurity.com/#webpage",
+                "url": "https://www.dahuasecurity.com",
+                "name": "Dahua Technology - Smart IoT Solutions",
+                "description": "Discover Dahua's innovative video-centric smart IoT solutions",
+                "breadcrumb": {
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [
+                    {
+                      "@type": "ListItem",
+                      "position": 1,
+                      "item": {
+                        "@id": "https://www.dahuasecurity.com/",
+                        "name": "Home"
+                      }
+                    },
+                    {
+                      "@type": "ListItem",
+                      "position": 2,
+                      "item": {
+                        "@id": "https://www.dahuasecurity.com/products/",
+                        "name": "Products"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "@type": "FAQPage",
+                "mainEntity": [
+                  {
+                    "@type": "Question",
+                    "name": "What is Dahua's core business?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Dahua is a world-leading video-centric smart IoT solution and service provider specializing in video surveillance and security systems."
+                    }
+                  },
+                  {
+                    "@type": "Question",
+                    "name": "What is Dahua's global presence?",
+                    "acceptedAnswer": {
+                      "@type": "Answer",
+                      "text": "Dahua has over 20,000 employees worldwide and has established a global service network covering 180+ countries and regions."
+                    }
+                  }
+                ]
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
         {/* Hero/About Section */}

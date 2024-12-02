@@ -179,6 +179,105 @@ const Hero = () => {
         description="Discover Lovosis Technology's innovative solutions to take your business to the next level. Our proven strategies have helped over 500+ businesses achieve remarkable growth in the digital landscape."
         keywords="Lovosis Technology, digital transformation, business growth, innovative solutions"
       />
+      
+      {/* Add Schema.org JSON-LD */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              "@id": "https://www.lovosistech.com/#website",
+              "url": "https://www.lovosistech.com",
+              "name": "Lovosis Technology",
+              "description": "Innovative Solutions for Your Business",
+              "publisher": {
+                "@id": "https://www.lovosistech.com/#organization"
+              }
+            },
+            {
+              "@type": "Organization",
+              "@id": "https://www.lovosistech.com/#organization",
+              "name": "Lovosis Technology",
+              "url": "https://www.lovosistech.com",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.lovosistech.com/logo.png"
+              },
+              "sameAs": [
+                "https://www.linkedin.com/company/lovosistech",
+                "https://twitter.com/lovosistech"
+              ],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "reviewCount": "500",
+                "bestRating": "5"
+              }
+            },
+            {
+              "@type": "Service",
+              "serviceType": "Digital Transformation",
+              "provider": {
+                "@id": "https://www.lovosistech.com/#organization"
+              },
+              "areaServed": {
+                "@type": "Country",
+                "name": "Global"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Digital Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Business Analytics",
+                      "description": "Advanced analytics solutions for business optimization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Process Automation",
+                      "description": "Seamless automation solutions for increased efficiency"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://www.lovosistech.com/#webpage",
+              "url": "https://www.lovosistech.com",
+              "name": "Lovosis Technology - Innovative Solutions for Your Business",
+              "description": "Discover Lovosis Technology's innovative solutions to take your business to the next level.",
+              "isPartOf": {
+                "@id": "https://www.lovosistech.com/#website"
+              },
+              "about": {
+                "@id": "https://www.lovosistech.com/#organization"
+              },
+              "breadcrumb": {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "item": {
+                      "@id": "https://www.lovosistech.com/",
+                      "name": "Home"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        })}
+      </script>
+      
       <HeroSection
         aria-label="Hero Section"
       >

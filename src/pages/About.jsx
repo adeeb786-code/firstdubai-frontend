@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { HelmetProvider } from 'react-helmet-async';
 import SEO from '../Components/SEO';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const CountingNumber = ({ end, duration = 2000 }) => {
   const [count, setCount] = useState(0);
@@ -311,6 +312,70 @@ const About = () => {
         description="Learn about Lovosis Technology's journey, mission, and vision for the future."
         keywords="Lovosis Technology, about us, mission, vision, team"
       />
+
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://www.lovosistech.com/#organization",
+                "name": "Lovosis Technology",
+                "url": "https://www.lovosistech.com",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.lovosistech.com/logo.png",
+                  "width": 112,
+                  "height": 112
+                },
+                "sameAs": [
+                  "https://www.facebook.com/lovosistech",
+                  "https://www.linkedin.com/company/lovosistech",
+                  "https://twitter.com/lovosistech"
+                ],
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+971-XXX-XXXX",
+                  "contactType": "customer service",
+                  "areaServed": "AE",
+                  "availableLanguage": ["en", "ar"]
+                }
+              },
+              {
+                "@type": "AboutPage",
+                "@id": "https://www.lovosistech.com/about/#webpage",
+                "url": "https://www.lovosistech.com/about/",
+                "name": "About Us | Lovosis Technology",
+                "isPartOf": { "@id": "https://www.lovosistech.com/#website" },
+                "about": { "@id": "https://www.lovosistech.com/#organization" },
+                "description": "Learn about Lovosis Technology's journey, mission, and vision for the future.",
+                "breadcrumb": {
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [
+                    {
+                      "@type": "ListItem",
+                      "position": 1,
+                      "item": {
+                        "@id": "https://www.lovosistech.com/",
+                        "name": "Home"
+                      }
+                    },
+                    {
+                      "@type": "ListItem",
+                      "position": 2,
+                      "item": {
+                        "@id": "https://www.lovosistech.com/about/",
+                        "name": "About Us"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          })}
+        </script>
+      </Helmet>
 
       <HeroSection>
         <HeroContent>

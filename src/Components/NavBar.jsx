@@ -95,8 +95,61 @@ const NavBar = () => {
     <HelmetProvider>
       <Helmet>
         <title>Navigation | Your Company Name</title>
-        <meta name="description" content="Navigate through our website to explore various sections and services we offer." />
-        <meta name="keywords" content="navigation, menu, services, Your Company Name" />
+        <meta name="description" content="Navigate through our website to explore various sections and services we offer including audio-video solutions, services, client projects and more." />
+        <meta name="keywords" content="navigation, menu, services, audio video solutions, smart classroom, meeting room solutions" />
+        
+        {/* OpenGraph tags */}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Navigation | Your Company Name" />
+        <meta property="og:description" content="Explore our comprehensive range of solutions and services" />
+
+        {/* Schema.org JSON-LD */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "Organization",
+                "@id": "https://yourwebsite.com/#organization",
+                "name": "Your Company Name",
+                "url": "https://yourwebsite.com",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://yourwebsite.com/logo.webp"
+                }
+              },
+              {
+                "@type": "WebSite",
+                "@id": "https://yourwebsite.com/#website",
+                "url": "https://yourwebsite.com",
+                "name": "Your Company Name",
+                "publisher": {
+                  "@id": "https://yourwebsite.com/#organization"
+                }
+              },
+              {
+                "@type": "SiteNavigationElement",
+                "name": "Main Navigation",
+                "hasPart": MENU_ITEMS.map(item => ({
+                  "@type": "SiteNavigationElement",
+                  "name": item.title,
+                  "url": `https://yourwebsite.com${item.href}`
+                }))
+              },
+              {
+                "@type": "BreadcrumbList",
+                "itemListElement": MENU_ITEMS.map((item, index) => ({
+                  "@type": "ListItem",
+                  "position": index + 1,
+                  "item": {
+                    "@id": `https://yourwebsite.com${item.href}`,
+                    "name": item.title
+                  }
+                }))
+              }
+            ]
+          })}
+        </script>
       </Helmet>
       <nav className={`fixed w-full z-40 transition-all duration-300 ${
         scrolled

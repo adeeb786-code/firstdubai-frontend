@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 const HeroSection = styled.div`
   position: relative;
-  min-height: 120vh;
+  min-height: 100vh; // Changed from 120vh for better mobile view
   background: linear-gradient(165deg, 
     rgba(37, 99, 235, 0.95) 0%, 
     rgba(37, 99, 235, 0.4) 25%, 
@@ -16,59 +16,20 @@ const HeroSection = styled.div`
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: pixelated;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform: translate3d(0,0,0);
-  will-change: transform;
   display: flex;
   align-items: center;
-  padding: 0;
+  padding: 2rem 0; // Added padding for mobile
   overflow: hidden;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('src/assets/img/audio/audiovideomain.webp');
-    background-size: cover;
-    background-position: center;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-
-  &.loaded::before {
-    opacity: 1;
-  }
-
-  @media (min-width: 1920px) {
-    background-image: linear-gradient(165deg, 
-      rgba(37, 99, 235, 0.95) 0%, 
-      rgba(37, 99, 235, 0.4) 25%, 
-      rgba(0, 0, 0, 0) 50%),
-      url('src/assets/img/audio/audiovideomain-4k.webp');
-  }
-
-  @media (min-resolution: 192dpi) {
-    background-image: linear-gradient(165deg, 
-      rgba(37, 99, 235, 0.95) 0%, 
-      rgba(37, 99, 235, 0.4) 25%, 
-      rgba(0, 0, 0, 0) 50%),
-      url('src/assets/img/audio/audiovideomain-full@2x.webp');
-  }
-
-  @media (min-width: 2000px) {
-    background-image: linear-gradient(165deg, 
-      rgba(37, 99, 235, 0.95) 0%, 
-      rgba(37, 99, 235, 0.4) 25%, 
-      rgba(0, 0, 0, 0) 50%),
-      url('src/assets/img/audio/audiovideomain-full@3x.webp');
+  @media (max-width: 768px) {
+    min-height: 100vh;
+    background-attachment: scroll; // Better performance on mobile
+    padding: 6rem 1rem 2rem 1rem; // Added top padding for mobile header
+    background: linear-gradient(165deg, 
+      rgba(37, 99, 235, 0.98) 0%, 
+      rgba(37, 99, 235, 0.7) 50%, 
+      rgba(37, 99, 235, 0.4) 100%),
+      url('src/assets/img/audio/audiovideomain.webp');
   }
 `;
 
@@ -91,24 +52,27 @@ const HeroContent = styled(motion.div)`
   position: relative;
   width: 100%;
   max-width: 1400px;
-  margin: 0;
-  padding-left: 5%;
+  margin: 0 auto;
+  padding: 0 5%;
   z-index: 10;
   
   @media (max-width: 1200px) {
-    padding-left: 6%;
+    padding: 0 6%;
   }
   
   @media (max-width: 768px) {
     padding: 0 1.5rem;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
 const MainHeading = styled.span`
   display: block;
   font-size: 0.875rem;
-  color: #1a237e;
+  color: #ffffff; // Changed for better visibility
   margin-bottom: 1rem;
   text-transform: uppercase;
   letter-spacing: 3px;
@@ -116,26 +80,10 @@ const MainHeading = styled.span`
   position: relative;
   padding-left: 45px;
   
-  &:before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    width: 30px;
-    height: 1px;
-    background: linear-gradient(90deg, #1a237e, transparent);
-    transform: scaleX(0);
-    animation: lineGrow 0.8s ease-out 0.5s forwards;
-  }
-  
-  @keyframes lineGrow {
-    to { transform: scaleX(1); }
-  }
-  
   @media (max-width: 768px) {
     font-size: 0.75rem;
     padding-left: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     
     &:before {
       display: none;
@@ -146,88 +94,82 @@ const MainHeading = styled.span`
 const SubHeading = styled.span`
   display: block;
   font-size: 3.5rem;
-  font-weight: 500;
-  color: #1a237e;
+  font-weight: 600;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   line-height: 1.1;
   max-width: 600px;
-  background: linear-gradient(120deg, #1a237e, #2b4162);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -0.5px;
   
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 2rem;
   }
 `;
 
 const Description = styled.p`
-  font-size: 1rem;
-  color: #2b4162;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
   margin: 1.5rem 0 2.5rem;
   max-width: 450px;
   line-height: 1.6;
   font-weight: 400;
-  letter-spacing: 0.2px;
-  opacity: 0;
-  animation: fadeIn 1s ease-out 0.3s forwards;
   
   @media (max-width: 768px) {
-    font-size: 0.9rem;
+    font-size: 1rem;
     margin: 1rem auto 2rem;
     text-align: center;
+    padding: 0 1rem;
   }
 `;
 
 const CtaButton = styled(Link)`
   display: inline-flex;
   align-items: center;
-  padding: 0.9rem 2.5rem;
-  background-color: transparent;
-  border: 1px solid #60a5fa;
-  color: #60a5fa;
+  padding: 1rem 2.5rem;
+  background-color: #ffffff;
+  border: none;
+  color: #2563eb;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.8rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 50px;
   transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(96, 165, 250, 0.1);
-    transform: skewX(-20deg);
-    transition: 0.5s;
-  }
-  
-  &:hover:before {
-    left: 100%;
-  }
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   
   &:hover {
-    background-color: #60a5fa;
-    color: #ffffff;
-    box-shadow: 0 5px 15px rgba(96, 165, 250, 0.3);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background-color: #f8fafc;
   }
 
-  &:after {
-    content: '→';
-    margin-left: 1rem;
-    transition: transform 0.3s ease;
+  @media (max-width: 768px) {
+    padding: 0.875rem 2rem;
+    font-size: 0.9rem;
+    width: 100%;
+    justify-content: center;
+    max-width: 300px;
   }
+`;
 
-  &:hover:after {
-    transform: translateX(5px);
+// Update the badge styling in the component
+const Badge = styled(motion.div)`
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 0.625rem 1.25rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
@@ -499,7 +441,7 @@ const ProcessCard = styled.div`
   }
   
   &::before {
-    content: "${props => props.number}";
+    content: "${props => props.$number}"; // Changed from number to $number
     position: absolute;
     top: -15px;
     left: -15px;
@@ -568,15 +510,16 @@ const AudioVideo = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <motion.div
+          <Badge
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6"
           >
             <span className="text-blue-400 mr-2">★</span>
-            <span className="text-white/90 text-sm font-medium">Leading AV Solutions Provider</span>
-          </motion.div>
+            <span className="text-white/90 text-sm font-medium">
+              Leading AV Solutions Provider
+            </span>
+          </Badge>
 
           <h1>
             <MainHeading>Professional Audio Visual Solutions Dubai</MainHeading>
@@ -589,6 +532,7 @@ const AudioVideo = () => {
           <motion.div
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            className="w-full flex justify-center"
           >
             <CtaButton to="/contact">
               Get Started
@@ -702,11 +646,12 @@ const AudioVideo = () => {
                   src="/src/assets/img/audio/BGM Solutions.webp"
                   alt="BGM Solutions"
                 />
-              </CardImage>
+              
               <CardContent>
                 <h3>BGM Solutions</h3>
                 <p>Create the perfect ambiance in any space with strategically placed background music systems, featuring high-quality speakers and advanced music players designed to set the ideal mood.</p>
               </CardContent>
+              </CardImage>
             </SolutionCard>
 
             <SolutionCard>
@@ -779,49 +724,49 @@ const AudioVideo = () => {
         <ProcessSection>
           <SectionTitle>Streamlined AV Installation Process for Maximum Efficiency</SectionTitle>
           <ProcessGrid>
-            <ProcessCard number="1">
+            <ProcessCard $number="1"> {/* Changed from number to $number */}
               <ProcessTitle>AV Consulting</ProcessTitle>
               <ProcessDescription>
                 Collaborating closely with clients to understand their unique audiovisual requirements, we provide tailored and effective recommendations.
               </ProcessDescription>
             </ProcessCard>
 
-            <ProcessCard number="2">
+            <ProcessCard $number="2"> {/* Changed from number to $number */}
               <ProcessTitle>Solution Design</ProcessTitle>
               <ProcessDescription>
                 Developing a detailed plan that includes the layout, components, and implementation strategy for a fully customized AV system.
               </ProcessDescription>
             </ProcessCard>
 
-            <ProcessCard number="3">
+            <ProcessCard $number="3"> {/* Changed from number to $number */}
               <ProcessTitle>Estimation</ProcessTitle>
               <ProcessDescription>
                 Delivering transparent and detailed cost estimates with clear project timelines for client review and approval.
               </ProcessDescription>
             </ProcessCard>
 
-            <ProcessCard number="4">
+            <ProcessCard $number="4"> {/* Changed from number to $number */}
               <ProcessTitle>Project Execution</ProcessTitle>
               <ProcessDescription>
                 Ensuring seamless installation by skilled GS-IT technicians, executed with precision and adherence to the approved plan.
               </ProcessDescription>
             </ProcessCard>
 
-            <ProcessCard number="5">
+            <ProcessCard $number="5"> {/* Changed from number to $number */}
               <ProcessTitle>Quality Check</ProcessTitle>
               <ProcessDescription>
                 Conducting thorough performance evaluations of the installed AV systems to guarantee optimal functionality and efficiency.
               </ProcessDescription>
             </ProcessCard>
 
-            <ProcessCard number="6">
+            <ProcessCard $number="6"> {/* Changed from number to $number */}
               <ProcessTitle>Documentation and Training</ProcessTitle>
               <ProcessDescription>
                 Providing user manuals, comprehensive documentation, and training sessions to ensure proper handling and management of AV equipment.
               </ProcessDescription>
             </ProcessCard>
 
-            <ProcessCard number="7">
+            <ProcessCard $number="7"> {/* Changed from number to $number */}
               <ProcessTitle>Maintenance</ProcessTitle>
               <ProcessDescription>
                 Offering regular system check-ups, updates, and prompt troubleshooting to keep AV systems running smoothly and reliably
