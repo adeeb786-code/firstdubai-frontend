@@ -20,7 +20,7 @@ const Contact = () => {
     setStatus('');
 
     try {
-      const response = await fetch('https://firstdubai.onrender.com', {
+      const response = await fetch('https://firstdubai.onrender.com/api/send-whatsapp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -4,6 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import SEO from '../Components/SEO';
 import Button from '../Components/Button/button';
 import styled from 'styled-components';
+import img1 from "../assets/img/white.webp"
 
 // Custom Hook: Count Animation
 const useCountAnimation = (end, duration = 2000) => {
@@ -38,7 +39,7 @@ const HeroSection = styled.section`
   position: relative;
   min-height: 100vh;
   background: linear-gradient(165deg, rgba(37, 99, 235, 0.95) 0%, rgba(37, 99, 235, 0.4) 25%, rgba(0, 0, 0, 0) 50%),
-    url('src/assets/img/white.webp');
+    url('');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
